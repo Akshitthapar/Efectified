@@ -23,10 +23,14 @@
                 <div class="right floated user-name"> </div>
             </header>
             <section class="content">
-                <audio src="song.mp3"></audio>
+                <audio src=""></audio>
                 <div class="list-headers">
         <div> Title </div>
-        <div class="songList"
+        <div> Artist </div>
+        <div> Album </div>
+        <div> Duration </div>
+    </div>
+        <div class="song-list">
         <div class="song" id="song1">
           <span class="song-name"> </span>
           </div>
@@ -39,24 +43,6 @@
           <div class="song" id="song4">
             <span class="song-name"> </span>
           </div>
-
-        <div> Artist </div>
-        <div> Album </div>
-        <div> Duration </div>
-        </div>
-        <div class="song-list">
-        <div class="song">
-        <span id="song1" class="song-name"> </span>
-        </div>
-        <div class="song">
-        <span id="song2" class="song-name"> </span>
-        </div>
-        <div class="song">
-        <span id="song3" class="song-name"> </span>
-        </div>
-        <div class="song">
-        <span id="song4" class="song-name"> </span>
-        </div>
         </div>
             </section>
             <footer>
@@ -90,16 +76,34 @@
             $('.play-icon').removeClass('fa-pause').addClass('fa-play');
             song.pause();
         }
-    } //after adding the code below evrything went of the screen //
+    }
     var fileNames = ['song1.mp3','song2.mp3','song3.mp3','song4.mp3'];
-    <div class="song" id="song1">
-    <span class="song-name"> </span>
-    </div>
+    // <div class="song" id="song1">
+    // <span class="song-name"> </span>
+    // </div>
     $('#song1').click(function() {
       var audio = document.querySelector('audio');
       audio.src = fileNames[0];
       audio.play();
     });
+    //to play the second song//
+    $('#song2').click(function() {
+      var audio = document.querySelector('audio');
+      audio.src = fileNames[1];
+      toggleSong();
+      });
+    //to play the 3rd song //
+      $('#song3').click(function() {
+        var audio = document.querySelector('audio');
+        audio.src = fileNames[2];
+        toggleSong();
+      });
+  // to play the 4th song //
+      $('#song4').click(function() {
+        var audio = document.querySelector('audio');
+        audio.src = fileNames[3];
+        toggleSong();
+        });
     function fancyTimeFormat(time)
     {
         // Hours, minutes and seconds
@@ -131,14 +135,14 @@
         $('.time-elapsed').text(currentTime);
         $('.song-duration').text(duration);
     }
-     /*var songList = ['Badri Ki Dulhania (Title Track)',//use of array//
-'Humma Song', 'Nashe Si Chadh Gayi', 'The Breakup Song'];*/
+    //use of array//
+     var songList = ['Badri Ki Dulhania (Title Track)','Humma Song', 'Nashe Si Chadh Gayi', 'The Breakup Song'];
 
     window.onload = function() {
-        $('#song1.song-name').text(songList[0]);
-        $('#song2.song-name').text(songList[1]);
-        $('#song3.song-name').text(songList[2]);
-        $('#song4.song-name').text(songList[3]);
+        $('#song1 .song-name').text(songList[0]);
+        $('#song2 .song-name').text(songList[1]);
+        $('#song3 .song-name').text(songList[2]);
+        $('#song4 .song-name').text(songList[3]);
         updateCurrentTime();
         setInterval(function() {
             updateCurrentTime();
