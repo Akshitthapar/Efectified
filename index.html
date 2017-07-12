@@ -39,7 +39,7 @@
           <div class="song" id="song4">
             <span class="song-name"> </span>
           </div>
-        
+
         <div> Artist </div>
         <div> Album </div>
         <div> Duration </div>
@@ -90,8 +90,8 @@
             $('.play-icon').removeClass('fa-pause').addClass('fa-play');
             song.pause();
         }
-    }
-    /*var fileNames = ['song1.mp3','song2.mp3','song3.mp3','song4.mp3'];
+    } //after adding the code below evrything went of the screen //
+    var fileNames = ['song1.mp3','song2.mp3','song3.mp3','song4.mp3'];
     <div class="song" id="song1">
     <span class="song-name"> </span>
     </div>
@@ -99,7 +99,7 @@
       var audio = document.querySelector('audio');
       audio.src = fileNames[0];
       audio.play();
-    });*/
+    });
     function fancyTimeFormat(time)
     {
         // Hours, minutes and seconds
@@ -131,8 +131,8 @@
         $('.time-elapsed').text(currentTime);
         $('.song-duration').text(duration);
     }
-     var songList = ['Badri Ki Dulhania (Title Track)',//use of array//
-'Humma Song', 'Nashe Si Chadh Gayi', 'The Breakup Song'];
+     /*var songList = ['Badri Ki Dulhania (Title Track)',//use of array//
+'Humma Song', 'Nashe Si Chadh Gayi', 'The Breakup Song'];*/
 
     window.onload = function() {
         $('#song1.song-name').text(songList[0]);
