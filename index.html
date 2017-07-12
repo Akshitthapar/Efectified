@@ -81,29 +81,63 @@
     // <div class="song" id="song1">
     // <span class="song-name"> </span>
     // </div>
-    $('#song1').click(function() {
+    /*$('#song1').click(function() {
       var audio = document.querySelector('audio');
       audio.src = fileNames[0];
-      audio.play();
-    });
-    //to play the second song//
+      console.log(audio.paused);
+        toggleSong();
+    //  audio.play();//
+  });*/
+  $('#song1').click(function() {
+  var audio = document.querySelector('audio');
+  var currentSong = audio.src;
+  if(currentSong.search(fileNames[0]) != -1)
+  {
+  toggleSong();
+  }
+  else {
+  audio.src = fileNames[0];
+  toggleSong();
+  }
+  });
     $('#song2').click(function() {
-      var audio = document.querySelector('audio');
-      audio.src = fileNames[1];
-      toggleSong();
-      });
+    var audio = document.querySelector('audio');
+    var currentSong = audio.src;
+    if(currentSong.search(fileNames[1]) != -1)
+    {
+    toggleSong();
+    }
+    else {
+    audio.src = fileNames[1];
+    toggleSong();
+    }
+    });
     //to play the 3rd song //
-      $('#song3').click(function() {
-        var audio = document.querySelector('audio');
-        audio.src = fileNames[2];
-        toggleSong();
-      });
+    $('#song3').click(function() {
+    var audio = document.querySelector('audio');
+    var currentSong = audio.src;
+    if(currentSong.search(fileNames[2]) != -1)
+    {
+    toggleSong();
+    }
+    else {
+    audio.src = fileNames[2];
+    toggleSong();
+    }
+    });
   // to play the 4th song //
-      $('#song4').click(function() {
-        var audio = document.querySelector('audio');
-        audio.src = fileNames[3];
-        toggleSong();
-        });
+  $('#song4').click(function() {
+  var audio = document.querySelector('audio');
+  var currentSong = audio.src;
+  if(currentSong.search(fileNames[3]) != -1)
+  {
+  toggleSong();
+  }
+  else {
+  audio.src = fileNames[3];
+  toggleSong();
+  }
+  });
     function fancyTimeFormat(time)
     {
         // Hours, minutes and seconds
