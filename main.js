@@ -1,3 +1,6 @@
+var currentSongNumber = 1;
+var willLoop = 0;
+var willShuffle = 0; // will use this soon
 var songs = [
 	{
 			'name': 'Badri Ki Dulhania (Title Track)',
@@ -58,83 +61,7 @@ var songs = [
 		$('.current-song-name').text(songObj.name)
 		$('.current-song-album').text(songObj.album)
 	}
-	/* for (var i = 0; i < fileName.length ; i++)
-	{
-		addSongNameClickEvent(fileName[i],i+1)
-	}  */
 
-
-	/* $('#song1').click(function() {
-			var audio = document.querySelector('audio');
-			audio.src = fileNames[0];
-			audio.play();
-			//toggleSong();
-			var currentSong = audio.src;
-			if(currentSong.search(fileNames[0]) != -1)
-				{
-					console.log('If statement executing');
-					toggleSong();
-				}
-				else
-				{
-					console.log('else statement executing');
-					audio.src = fileNames[0];
-					toggleSong();
-				}
-		});
-
-		$('#song2').click(function() {
-			var audio = document.querySelector('audio');
-			audio.src = fileNames[1];
-			audio.play();
-			toggleSong();
-			if(audio.src == fileNames[1])
-				var currentSong = audio.src;
-			if(currentSong.search(fileNames[1]) != -1)
-				{
-				toggleSong();
-				}
-				else {
-				audio.src = fileNames[1];
-				toggleSong();
-				}
-		});
-
-		$('#song3').click(function() {
-			var audio = document.querySelector('audio');
-			audio.src = fileNames[2];
-			audio.play();
-			toggleSong();
-			if(audio.src == fileNames[2])
-			var currentSong = audio.src;
-			if(currentSong.search(fileNames[2]) != -1)
-				{
-					toggleSong();
-				}
-				else {
-					audio.src = fileNames[2];
-					toggleSong();
-				}
-		});
-
-		$('#song4').click(function() {
-			var audio = document.querySelector('audio');
-			audio.src = fileNames[3];
-			audio.play();
-			toggleSong();
-			if(audio.src == fileNames[3])
-			var currentSong = audio.src;
-			if(currentSong.search(fileNames[3]) != -1)
-				{
-					toggleSong();
-				}
-				else {
-					audio.src = fileNames[3];
-					toggleSong();
-				}
-		});
-
-	 */
 		function fancyTimeFormat(time)
 	{
 		// Hours, minutes and seconds
@@ -165,27 +92,12 @@ var songs = [
 		$('.song-duration').text(duration);
 	}
 
-	/* var songName1 = 'Badri Ki Dulhania (Title Track)';
-	var songName2 = 'Humma Song';
-	var songName3 = 'Nashe Si Chadh Gayi';
-	var songName4 = 'The Breakup Song';
-	var songList = ['Badri Ki Dulhania (Title Track)','Humma Song', 'Nashe Si Chadh Gayi', 'The Breakup Song'];
-	var artistList = ['Neha Kakkar',' Monali Thakur',' Ikka Singh', 'Dev Negi'];
-	var albumList = ['Badrinath ki Dulhania','Ok Jaanu','Befikre','Ae Dil Hai Mushkil'];
-	var durationList = ['2:56','3:15','2:34','2:29'];
-	 */
+
 
 
 	window.onload = function() {
 		changeCurrentSongDetails(songs[0]);
-		/* for(var i=0;i<=songList.length;i++){
-			var name= "#song"+ (i+1);
-			var song=$(name);
-		song.find('.song-name').text(songList[i]);
-		song.find('.song-artist').text(artistList[i]);
-		song.find('.song-album').text(albumList[i]); // Added
-		song.find('.song-length').text(durationList[i]);
-		} */
+
 
 		 for(var i =0; i < songs.length;i++)
 		{
@@ -201,10 +113,6 @@ var songs = [
 		}
 
 
-		/*$('#song1 .song-artist').text(artistList[0]);
-		$('#song2 .song-artist').text(artistList[1]);
-		$('#song3 .song-artist').text(artistList[2]);
-		$('#song4 .song-artist').text(artistList[3]); */
 		updateCurrentTime();
 		setInterval(function() {
 		updateCurrentTime();
@@ -250,6 +158,11 @@ var songs = [
 			toggleSong();
 			}
 	});
-	$('#songs').DataTable({
+	/*$('#songs').DataTable({
 	        paging: false
 	    });
+			$('.fa-repeat').on('click',function() {
+			    $('.fa-repeat').toggleClass('disabled')
+			    willLoop = 1 - willLoop;
+			});*/
+			
