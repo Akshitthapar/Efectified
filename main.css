@@ -208,12 +208,10 @@ table.dataTable tbody tr {
     margin-bottom: 1rem;
     font-size: 16px;
 }
-$('#songs').DataTable({
-        paging: false
-    });
+
     .player-buttons .fa {
         margin-right: 2rem;
-        
+
     }
 
     .fa.disabled {
