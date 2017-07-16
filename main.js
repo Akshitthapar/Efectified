@@ -3,34 +3,34 @@ var willLoop = 0;
 var willShuffle = 0; // will use this soon
 var songs = [
 	{
-			'name': 'Badri Ki Dulhania (Title Track)',
-			'artist': 'Neha Kakkar, Monali Thakur',
-			'album': 'Badrinath ki Dulhania',
-			'duration': '2:56',
+			'name': 'Fursat',
+			'artist': 'Arjun',
+			'album': 'Singles',
+			'duration': '3:15',
 		 'fileName': 'song1.mp3',
 	 'image':'song1.jpg'
 	},
 	{
-			'name': 'Humma Song',
-			'artist': ' Shashaa Tirupati',
-			'album': 'Ok Jaanu',
-			'duration': '3:15',
+			'name': 'Kher Mangdi',
+			'artist': 'Vidya Iyer',
+			'album': 'Vidya Vox',
+			'duration': '3:47',
 			'fileName': 'song2.mp3',
 	'image':'song2.jpg'
 	},
 	{
-			'name': 'Nashe Si Chadh Gayi',
-			'artist': 'Arijit Singh',
-			'album': 'Befikre',
-			'duration': '2:34',
+			'name': 'Let me love you',
+			'artist': 'Vidya Iyer',
+			'album': 'Vidya Vox',
+			'duration': '3:16',
 			'fileName': 'song3.mp3',
 	'image':'song3.jpg'
 	},
 	{
-			'name': 'The Breakup Song',
-			'artist': 'Nakash Aziz, Arijit Singh',
-			'album': 'Ae Dil Hai Mushkil',
-			'duration': '2:29',
+			'name': 'Closer',
+			'artist': 'Vidya Iyer',
+			'album': 'Vidya Vox',
+			'duration': '3:32',
 			'fileName': 'song4.mp3',
 	'image':'song4.jpg'
 	}]
