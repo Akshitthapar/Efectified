@@ -159,6 +159,7 @@ var songs = [
 			toggleSong();
 			}
 	});
+
 	/*$('#songs').DataTable({
 	        paging: false
 	    });
