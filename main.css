@@ -41,7 +41,18 @@ h1 {
     color: white;
     background-color: #1f1f1f;
 }
+/* this is for main page */
+#main{
+   background-image:url(img/main.jpg);
+   color:#0276FD;
+   background-position: center;
+   background-size: cover;
+}
+input{
+  padding: 3px;
+  margin: 5px;
 
+}
 .main header {
     height: 80px;
     background-color: #282828;
@@ -217,4 +228,3 @@ table.dataTable tbody tr {
     .fa.disabled {
         color: gray;
     }*/
-    
