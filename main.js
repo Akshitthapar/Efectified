@@ -132,14 +132,14 @@ var songs = [
 		song.pause();
 		}
 	}
-
+/*welcome screen sae input accept kr kae main screen pr puncha detaa hai */
 	$('.welcome-screen button').on('click', function() {
 		var name = $('#name-input').val();
 		if (name.length > 3) {
 			var message = "Welcome, " + name;
 			$('.main .user-name').text(message);
 			$('.welcome-screen').addClass('hidden');
-			$('.main').removeClass('hidden');
+			$('.main').removeClass('hidden'); /*hides main screen */
 		} else {
 			$('#name-input').addClass('error');
 			window.alert("user-name incorrect");

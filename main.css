@@ -39,12 +39,12 @@ h1 {
     display: flex;
     flex-direction: column;
     color: white;
-    background-color: #1f1f1f;
+    background-image: url(img/content.jpg);
 }
 /* this is for main page */
 #main{
    background-image:url(img/main.jpg);
-   color:#0276FD;
+   /*color:#0276FD;*/
    background-position: center;
    background-size: cover;
 }
@@ -55,19 +55,19 @@ input{
 }
 .main header {
     height: 80px;
-    background-color: #282828;
+    background-color:#0D0042;
     padding: 1rem;
     color: #FFF;
 }
-
+/*this is for main content jaha gano kae naam hai */
 .main .content {
     flex:1;
-    background-color: #1f1f1f;
+    background-color:rgba(39,39,39,0.7);
 }
 
 .main footer {
     height: 80px;
-    background-color: #282828;
+    background-color: #0D0042;
     padding-top: 1rem;
 }
 
@@ -100,15 +100,15 @@ input{
     justify-content: center;
     align-items: center;
 }
-
+/*
 .progress-wrapper span {
-    color: #959595;
+    color: orange;
 }
-
+*/
 .player-progress {
     height: 8px;
     width: 700px;
-    background-color: #3d3d3d;
+    background-color: orange;
     border-radius: 4px;
     margin-right: 6px;
     margin-left: 6px;
@@ -178,7 +178,10 @@ input{
 
 .content {
     position: relative;
+    border-radius: 6px;
+
 }
+
 .current-song-wrapper {
     position: absolute;
     bottom: 0;
