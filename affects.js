@@ -73,8 +73,16 @@ var d= document.querySelector(".d");
 
 var x=0;
 var y=0;
-a.addEventListner("click",function ({
-  $(this).toggleSong("border");
+/*element.addEventListener("click", myFunction);
+
+function myFunction() {
+    alert ("Hello World!");
+}*/
+
+
+
+a.addEventListner("click",function (e){
+  $(this).toggleClass("border");
 
   if (delay.bypass) {
 
@@ -86,10 +94,10 @@ a.addEventListner("click",function ({
     console.log("true");
   }
 });
-b.addEventListner("click",function ({
-  $(this).toggleSong("border");
+ b.addEventListner("click",function (e){
+  $('this').toggleClass("border");
 
-  if (wahwah.bypass) {
+  if (WahWah.bypass) {
 
     wahwah.bypass=0;
   }
@@ -100,8 +108,8 @@ b.addEventListner("click",function ({
 });
 
 
-  c.addEventListner("click",function ({
-  $(this).toggleSong("border");
+  c.addEventListner("click",function (e){
+  $(this).toggleClass("border");
 
   if (overdrive.bypass) {
 
@@ -113,8 +121,8 @@ b.addEventListner("click",function ({
   }
 });
 
-d.addEventListner("click",function ({
-  $(this).toggleSong("border");
+d.addEventListner("click",function (e){
+  $(this).toggleClass("border");
 
   if (tremolo.bypass) {
 
