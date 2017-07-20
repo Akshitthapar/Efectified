@@ -39,27 +39,28 @@ var songs = [
 	function addSongNameClickEvent(songObj,position)
 	{
 		var songName = songObj.fileName; // New Variable
-		var id="#song"+position
-		$(id).click(function() {
-		var audio = document.querySelector('audio');
-		var currentSong = audio.src;
-		if(currentSong.search(songName) != -1)
+		var id="#song"+position //creates a var id //
+		$(id).click(function() //when an that id is clicked//
 		{
-		toggleSong();
+		var audio = document.querySelector('audio'); //audio gets selected//
+		var currentSong = audio.src; //then it add's it in a variable and checks weather the song exist or not//
+		if(currentSong.search(songName) != -1) //if it exist then play//
+		{
+		toggleSong();//if not call yhe toggle function//
 		}
 		else {
-		audio.src = songName;
+		audio.src = songName; // add a new song in source//
 		toggleSong();
-		changeCurrentSongDetails(songObj);
+		changeCurrentSongDetails(songObj); //change the details of current song//
 		}
 		});
 	}
 
 	 function changeCurrentSongDetails(songObj)
 	{
-		$('.current-song-image').attr('src','img/' + songObj.image)
-		$('.current-song-name').text(songObj.name)
-		$('.current-song-album').text(songObj.album)
+		$('.current-song-image').attr('src','img/' + songObj.image) //adding song source//
+		$('.current-song-name').text(songObj.name)//adding song name//
+		$('.current-song-album').text(songObj.album)//addding song album//
 	}
 
 		function fancyTimeFormat(time)
@@ -81,25 +82,25 @@ var songs = [
 		return ret;
 	}
 
-	function updateCurrentTime()
+	function updateCurrentTime() // this code updates duration of current song //
 	{
-		var song = document.querySelector('audio');
-		var currentTime = Math.floor(song.currentTime);
+		var song = document.querySelector('audio'); //selcts song//
+		var currentTime = Math.floor(song.currentTime); //curent time math flor is used for 2 decimal value//
 		currentTime = fancyTimeFormat(currentTime);
 		var duration = Math.floor(song.duration);
 		duration = fancyTimeFormat(duration)
-		$('.time-elapsed').text(currentTime);
+		$('.time-elapsed').text(currentTime); //add both song//
 		$('.song-duration').text(duration);
 	}
 
 
 
 
-	window.onload = function() {
+	window.onload = function() {     //user ko dikhane ko//
 		changeCurrentSongDetails(songs[0]);
 
 
-		 for(var i =0; i < songs.length;i++)
+		 for(var i =0; i < songs.length;i++) //loop chalnae kae liyae har song iss mai sae nikelgaa
 		{
 			var obj = songs[i];
 			var name = '#song' + (i+1);
@@ -113,14 +114,14 @@ var songs = [
 		}
 
 
-		updateCurrentTime();
+		updateCurrentTime();  //current time update krnae ko
 		setInterval(function() {
 		updateCurrentTime();
 		},1000);
 		}
 	function toggleSong()
 	{
-		var song = document.querySelector('audio');
+		var song = document.querySelector('audio'); //yeh play aur pause mai chnge krnae ko hai//
 		if(song.paused == true) {
 		console.log('Playing');
 		$('.play-icon').removeClass('fa-play').addClass('fa-pause');
@@ -148,13 +149,13 @@ var songs = [
 
 	$('.play-icon').on('click', function()
 	{
-		toggleSong();
+		toggleSong(); //yeh function hai song toggle krnae ko//
 	});
 
 	$('body').on('keypress', function(event)
 	{
 		var target = event.target;
-		if (event.keyCode == 32  && target.tagName !='INPUT')
+		if (event.keyCode == 32  && target.tagName !='INPUT') //keyboard space chalnae ko//
 			{
 			toggleSong();
 			}
