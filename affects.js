@@ -81,7 +81,7 @@ function myFunction() {
 
 
 
-a.addEventListner("click",function (e){
+a.addEventListener("click",function (e){
   $(this).toggleClass("border");
 
   if (delay.bypass) {
@@ -94,7 +94,7 @@ a.addEventListner("click",function (e){
     console.log("true");
   }
 });
- b.addEventListner("click",function (e){
+ b.addEventListener("click",function (e){
   $('this').toggleClass("border");
 
   if (WahWah.bypass) {
@@ -108,7 +108,7 @@ a.addEventListner("click",function (e){
 });
 
 
-  c.addEventListner("click",function (e){
+  c.addEventListener("click",function (e){
   $(this).toggleClass("border");
 
   if (overdrive.bypass) {
@@ -121,7 +121,7 @@ a.addEventListner("click",function (e){
   }
 });
 
-d.addEventListner("click",function (e){
+d.addEventListener("click",function (e){
   $(this).toggleClass("border");
 
   if (tremolo.bypass) {
