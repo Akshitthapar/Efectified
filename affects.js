@@ -34,16 +34,16 @@ var chorus = new tuna.Chorus({
     bypass: 0
 });
 
-overdrive=new Tuna.Overdrive({
+overdrive=new tuna.Overdrive({
   outputGain: 1,
   drive:0.7, //0 to 1//
   curveAmount: 1,
   algorithmIndex:4,
   bypass:1,
 });
-tremolo=new Tuna.Tremolo({
+tremolo=new tuna.Tremolo({
   intensity:1,
-  rate:8
+  rate:8,
 //  stereoPhase:14,//
   bypass:1
 });
@@ -56,11 +56,11 @@ tuna();
 var song= document.querySelector("audio");
 var source= context.createMediaElementSource(song);
 
-source.connect(wahwah.input);
+source.connect(WahWah.input);
 source.connect(tremolo.input);
 source.connect(overdrive.input);
-souce.connect(delay.input);
-wahwah.connect(context.destination);
+source.connect(delay.input);
+WahWah.connect(context.destination);
 delay.connect(context.destination);
 overdrive.connect(context.destination);
 tremolo.connect(context.destination);
@@ -73,7 +73,7 @@ var d= document.querySelector(".d");
 
 var x=0;
 var y=0;
-a.addEventListner("click",function(e){
+a.addEventListner("click",function ({
   $(this).toggleSong("border");
 
   if (delay.bypass) {
@@ -86,7 +86,7 @@ a.addEventListner("click",function(e){
     console.log("true");
   }
 });
-b.addEventListner("click",function(e){
+b.addEventListner("click",function ({
   $(this).toggleSong("border");
 
   if (wahwah.bypass) {
@@ -100,7 +100,7 @@ b.addEventListner("click",function(e){
 });
 
 
-  c.addEventListner("click",function(e){
+  c.addEventListner("click",function ({
   $(this).toggleSong("border");
 
   if (overdrive.bypass) {
@@ -113,7 +113,7 @@ b.addEventListner("click",function(e){
   }
 });
 
-d.addEventListner("click",function(e){
+d.addEventListner("click",function ({
   $(this).toggleSong("border");
 
   if (tremolo.bypass) {
