@@ -6,7 +6,7 @@ var overdrive;
 
 function tuna(){
 //creates on indtsnce of tuna passing the audio context we use
-var tuna =new tuna (context);
+var tuna =new Tuna (context);
 //creates a new Tuna delay instance
 
 WahWah= new tuna.WahWah({
@@ -19,7 +19,7 @@ WahWah= new tuna.WahWah({
   bypass:1 //either 1 or 0 currently it is true and off//
 });
 
-delay =new tuna.delay({
+delay =new tuna.Delay({
    feedback:0.78,
    delayTime:70,
    wetLevel:0.9,
@@ -34,18 +34,18 @@ var chorus = new tuna.Chorus({
     bypass: 0
 });
 
-overdrive=new tuna.overdrive({
+overdrive=new Tuna.Overdrive({
   outputGain: 1,
   drive:0.7, //0 to 1//
   curveAmount: 1,
   algorithmIndex:4,
   bypass:1,
 });
-tremolo=new tuna.tremolo({
+tremolo=new Tuna.Tremolo({
   intensity:1,
   rate:8
-  /*stereoPhase:14,*/
-  //bypass:0,//
+//  stereoPhase:14,//
+  bypass:1
 });
 }// this is for tuna functon//
 
