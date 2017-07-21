@@ -186,17 +186,19 @@ input{
     position: absolute;
     bottom: 0;
     display: flex;
+    margin-top: 10px;
 }
 
 .current-song-image {
     height: 100px;
     width: 100px;
     margin-right: 1rem;
+    margin-top: 10px;
 }
 
 .current-song-name {
     font-size: 1.4rem;
-    margin-top: 4px;
+    margin-top: 8px;
     margin-bottom: 0;
 }
 
@@ -231,3 +233,8 @@ table.dataTable tbody tr {
     .fa.disabled {
         color: gray;
     }*/
+.effects{
+  text-align: center;
+  background-color: black;
+  color: red;
+}

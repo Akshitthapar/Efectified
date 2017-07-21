@@ -1,137 +1,100 @@
-var delay;
-var Chorus;
-var WahWah;
-var tremolo;
-var overdrive;
+    window.onload = function () {
+           if (!window.webkitAudioContext) {
+               document.getElementById("body").innerHTML = "Oops, your browser doesn't support this demo! Please try the latest Google Chrome.";
+               return;
+           } else {
+               if (!window.Audio) {
+                   document.getElementById("body").innerHTML = "Oops, your browser doesn't support this demo! Please try the latest Google Chrome.";
+                   return;
+               }
+           }
+var context = new webkitAudioContext(),
+             tuna = new Tuna(context);
 
-function tuna(){
-//creates on indtsnce of tuna passing the audio context we use
-var tuna =new Tuna (context);
-//creates a new Tuna delay instance
 
-WahWah= new tuna.WahWah({
-  automode: true, //true/false
-  baseFrequency:0.8, //0to1
-  excursionOctaves:1, //1to 6
-  sweep: 0.6, //0 to1
-  resonance:70, //1 to 100
-  sensitivity:0.5, // -1 to 1
-  bypass:1 //either 1 or 0 currently it is true and off//
-});
+         /*These are the effects made with tuna*/
 
-delay =new tuna.Delay({
-   feedback:0.78,
-   delayTime:70,
-   wetLevel:0.9,
-   cutoff:5000,
-   bypass:true
-});
-
-var chorus = new tuna.Chorus({
-    rate: 1.5,
-    feedback: 0.2,
-    delay: 0.0045,
-    bypass: 0
-});
-
-overdrive=new tuna.Overdrive({
-  outputGain: 1,
-  drive:0.7, //0 to 1//
-  curveAmount: 1,
-  algorithmIndex:4,
-  bypass:1,
-});
-tremolo=new tuna.Tremolo({
-  intensity:1,
-  rate:8,
-//  stereoPhase:14,//
-  bypass:1
-});
-}// this is for tuna functon//
+         var wahwah = new tuna.WahWah({
+             automode: true, //true/false
+             baseFrequency: 0.5, //0 to 1
+             excursionOctaves: 3, //1 to 6
+             sweep: 0, //0 to 1
+             resonance: 2, //1 to 100
+             sensitivity: 1, //-1 to 1
+             bypass: 0
+         });
+         var phaser = new tuna.Phaser({
+             rate: 1.2, //0.01 to 8 is a decent range, but higher values are possible
+             depth: 0.8, //0 to 1
+             feedback: 0.9, //0 to 1+
+             stereoPhase: 180, //0 to 180
+             baseModulationFrequency: 700, //500 to 1500
+             bypass: 0
+         });
+         var tremolo = new tuna.Tremolo({
+             intensity: 0.2, //0 to 1
+             rate: 8, //0.001 to 8
+             stereoPhase: 0, //0 to 180
+             feedback: 0.9, //0 to 1+
+             bypass: 0
+         });
 
 
 
-var context= new AudioContext;
-tuna();
-var song= document.querySelector("audio");
-var source= context.createMediaElementSource(song);
 
-source.connect(WahWah.input);
-source.connect(tremolo.input);
-source.connect(overdrive.input);
-source.connect(delay.input);
-WahWah.connect(context.destination);
-delay.connect(context.destination);
-overdrive.connect(context.destination);
-tremolo.connect(context.destination);
+         var freq = 55 * Math.pow(1.059463, 11);
+         var osc;
 
 
-var a= document.querySelector(".a");
-var b= document.querySelector(".b");
-var c= document.querySelector(".c");
-var d= document.querySelector(".d");
+         //no effect
+         function createNoTuna() {
+             osc = context.createOscillator();
+             osc.type = 3; // triangle wave
+             osc.frequency.value = freq
+             osc.connect(context.destination);
+             osc.noteOn(0);
+         }
 
-var x=0;
-var y=0;
-/*element.addEventListener("click", myFunction);
+         //play with wahwah effect
+         function createWahWah() {
+             osc = context.createOscillator();
+             osc.type = 3; // triangle wave
+             osc.frequency.value = freq
+             osc.connect(wahwah.input);
+             wahwah.connect(context.destination);
+             osc.noteOn(0);
+         }
 
-function myFunction() {
-    alert ("Hello World!");
-}*/
+         //play with phaser effect
+         function createPhaser() {
+             osc = context.createOscillator();
+             osc.type = 3; // triangle wave
+             osc.frequency.value = freq
+             osc.connect(phaser.input);
+             phaser.connect(context.destination);
+             osc.noteOn(0);
+         }
 
+         //play with tremolo effect
+         function createTremolo() {
+             osc = context.createOscillator();
+             osc.type = 3; // triangle wave
+             osc.frequency.value = freq
+             osc.connect(tremolo.input);
+             tremolo.connect(context.destination);
+             osc.noteOn(0);
+         }
 
+         function stopWave() {
+             osc.noteOff(0);
+         }
 
-a.addEventListener("click",function (e){
-  $(this).toggleClass("border");
-
-  if (delay.bypass) {
-
-    delay.bypass=false;
-    console.log("false");
-  }
-  else {
-    delay.bypass=true;
-    console.log("true");
-  }
-});
- b.addEventListener("click",function (e){
-  $('this').toggleClass("border");
-
-  if (WahWah.bypass) {
-
-    wahwah.bypass=0;
-  }
-  else {
-    wahwah.bypass=1;
-
-  }
-});
-
-
-  c.addEventListener("click",function (e){
-  $(this).toggleClass("border");
-
-  if (overdrive.bypass) {
-
-    overdrive.bypass=0;
-  }
-  else {
-    overdrive.bypass=1;
-
-  }
-});
-
-d.addEventListener("click",function (e){
-  $(this).toggleClass("border");
-
-  if (tremolo.bypass) {
-
-    tremolo.bypass=0;
-
-  }
-  else {
-    tremolo.bypass=1;
-
-  }
-
-});
+         document.getElementById('notuna').addEventListener('mousedown', createNoTuna)
+         document.getElementById('notuna').addEventListener('mouseup', stopWave)
+         document.getElementById('wahwah').addEventListener('mousedown', createWahWah)
+         document.getElementById('wahwah').addEventListener('mouseup', stopWave)
+         document.getElementById('phaser').addEventListener('mousedown', createPhaser)
+         document.getElementById('phaser').addEventListener('mouseup', stopWave)
+         document.getElementById('tremolo').addEventListener('mousedown', createTremolo)
+         document.getElementById('tremolo').addEventListener('mouseup', stopWave)
+}
