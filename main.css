@@ -236,5 +236,13 @@ table.dataTable tbody tr {
 .effects{
   text-align: center;
   background-color: black;
-  color: red;
+  
+}
+.buttons{
+background-color: black;
+color:blue;
+margin-right: 5px;
+border: 0px;
+font-size: 16px;
+font-style:italic;
 }
